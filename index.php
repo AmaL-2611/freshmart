@@ -71,7 +71,7 @@ require_once 'includes/header.php';
                     <div class="col-md-3 mb-4">
                         <div class="card product-card h-100">
                             <?php if ($product['image']): ?>
-                                <img src="./assets/images/products/<?php echo htmlspecialchars($product['image']); ?>">
+                                <img src="./assets/images/products/<?php echo htmlspecialchars($product['image']); ?>" 
                                      class="card-img-top" 
                                      alt="<?php echo htmlspecialchars($product['name']); ?>"
                                      loading="lazy"
