@@ -47,7 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Load Razorpay configuration
-require_once '././config/razorpay.php';
+require_once './config/razorpay.php';
+
 
 $pageTitle = 'Checkout - FreshMart';
 require_once 'includes/header.php';
