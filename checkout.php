@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "currency": "INR",
             "name": "FreshMart",
             "description": "Order Payment",
-            "image": "/anki/assets/images/logo.png",
+            "image": "./assets/images/logo.png",
             "handler": function (response) {
                 // Payment successful
                 processRazorpayOrder(response);
