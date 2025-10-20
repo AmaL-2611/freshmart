@@ -23,20 +23,20 @@
                     </ul>
                 </div>
                 <div class="col-md-3 mb-4">
-                    <h5>Customer Service</h5>
+                    <h5>Shop by Category</h5>
                     <ul class="list-unstyled">
-                        <li><a href="shipping.php" class="text-white text-decoration-none">Shipping Policy</a></li>
-                        <li><a href="returns.php" class="text-white text-decoration-none">Return Policy</a></li>
-                        <li><a href="payment-options.php" class="text-white text-decoration-none">Payment Options</a></li>
-                        <li><a href="track-order.php" class="text-white text-decoration-none">Track Order</a></li>
+                        <li><a href="products.php?category=fruits" class="text-white text-decoration-none">Fresh Fruits</a></li>
+                        <li><a href="products.php?category=vegetables" class="text-white text-decoration-none">Vegetables</a></li>
+                        <li><a href="products.php?category=dairy" class="text-white text-decoration-none">Dairy Products</a></li>
+                        <li><a href="products.php?category=bakery" class="text-white text-decoration-none">Bakery Items</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 mb-4">
                     <h5>Contact Us</h5>
                     <address>
-                        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Grocery St, City, Country</p>
-                        <p><i class="fas fa-phone me-2"></i> +1 234 567 8900</p>
-                        <p><i class="fas fa-envelope me-2"></i> info@freshmart.com</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Freshmart,Mundakyam</p>
+                        <p><i class="fas fa-phone me-2"></i> 9745252847</p>
+                        <p><i class="fas fa-envelope me-2"></i> Freshmart@gmail.com</p>
                     </address>
                 </div>
             </div>

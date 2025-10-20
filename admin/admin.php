@@ -26,9 +26,14 @@ require_once '../includes/header.php';
 ?>
 
 <div class="container-fluid mt-4">
+    <!-- Hamburger Menu Button -->
+    <button class="btn btn-success d-md-none mb-3" id="sidebarToggle" style="position: fixed; top: 80px; left: 10px; z-index: 1050;">
+        <i class="fas fa-bars"></i>
+    </button>
+
     <div class="row">
         <!-- Sidebar -->
-        <nav class="col-md-2 d-md-block bg-light sidebar">
+        <nav class="col-md-2 d-md-block bg-light sidebar" id="adminSidebar">
             <div class="sidebar-sticky pt-3">
                 <h6 class="sidebar-heading px-3 mt-4 mb-1 text-muted">
                     <span>Admin Panel</span>
@@ -64,7 +69,7 @@ require_once '../includes/header.php';
         </nav>
 
         <!-- Main content -->
-        <main role="main" class="col-md-10 ml-sm-auto px-md-4">
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4" style="margin-left: auto;">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Dashboard</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
@@ -185,6 +190,25 @@ require_once '../includes/header.php';
 </div>
 
 <style>
+/* Hide navbar toggle button on admin pages */
+.navbar-toggler {
+    display: none !important;
+}
+
+/* Footer alignment with sidebar */
+@media (min-width: 1200px) {
+    footer {
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    footer {
+        margin-left: 0;
+    }
+}
+
+/* Sidebar - Always visible on desktop */
 .sidebar {
     position: fixed;
     top: 76px;
@@ -192,7 +216,46 @@ require_once '../includes/header.php';
     left: 0;
     z-index: 100;
     padding: 0;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+}
+
+/* Large Desktop - Sidebar always visible */
+@media (min-width: 1200px) {
+    .sidebar {
+        width: 250px;
+        transform: translateX(0) !important;
+    }
+    
+    main {
+        margin-left: 250px !important;
+    }
+    
+    #sidebarToggle {
+        display: none !important;
+    }
+}
+
+/* Tablet, Mobile, and Small Desktop - Hamburger menu */
+@media (max-width: 1199.98px) {
+    .sidebar {
+        width: 250px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+    }
+    
+    main {
+        margin-left: 0 !important;
+    }
+    
+    #sidebarToggle {
+        display: block !important;
+    }
 }
 
 .sidebar-sticky {
@@ -221,8 +284,20 @@ require_once '../includes/header.php';
     background-color: rgba(40, 167, 69, 0.05);
 }
 
-main {
-    margin-left: 16.666667%;
+/* Overlay for mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+.sidebar-overlay.show {
+    display: block;
 }
 
 .card {
@@ -230,5 +305,41 @@ main {
     margin-bottom: 20px;
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('adminSidebar');
+    const body = document.body;
+    
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    body.appendChild(overlay);
+    
+    // Toggle sidebar
+    sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('show');
+        overlay.classList.toggle('show');
+    });
+    
+    // Close sidebar when clicking overlay
+    overlay.addEventListener('click', function() {
+        sidebar.classList.remove('show');
+        overlay.classList.remove('show');
+    });
+    
+    // Close sidebar when clicking a link (mobile)
+    const sidebarLinks = sidebar.querySelectorAll('.nav-link');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth < 768) {
+                sidebar.classList.remove('show');
+                overlay.classList.remove('show');
+            }
+        });
+    });
+});
+</script>
 
 <?php require_once '../includes/footer.php'; ?>

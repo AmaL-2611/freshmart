@@ -21,9 +21,14 @@ require_once '../includes/header.php';
 ?>
 
 <div class="container-fluid mt-4">
+    <!-- Hamburger Menu Button -->
+    <button class="btn btn-success d-md-none mb-3" id="sidebarToggle" style="position: fixed; top: 80px; left: 10px; z-index: 1050;">
+        <i class="fas fa-bars"></i>
+    </button>
+
     <div class="row">
         <!-- Sidebar -->
-        <nav class="col-md-2 d-md-block bg-light sidebar">
+        <nav class="col-md-2 d-md-block bg-light sidebar" id="adminSidebar">
             <div class="sidebar-sticky pt-3">
                 <h6 class="sidebar-heading px-3 mt-4 mb-1 text-muted">
                     <span>Admin Panel</span>
@@ -135,6 +140,24 @@ require_once '../includes/header.php';
 </div>
 
 <style>
+/* Hide navbar toggle button on admin pages */
+.navbar-toggler {
+    display: none !important;
+}
+
+/* Footer alignment with sidebar */
+@media (min-width: 1200px) {
+    footer {
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    footer {
+        margin-left: 0;
+    }
+}
+
 .sidebar {
     position: fixed;
     top: 76px;
@@ -142,7 +165,8 @@ require_once '../includes/header.php';
     left: 0;
     z-index: 100;
     padding: 0;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
 }
 
 .sidebar-sticky {
@@ -171,9 +195,87 @@ require_once '../includes/header.php';
     background-color: rgba(40, 167, 69, 0.05);
 }
 
-main {
-    margin-left: 16.666667%;
+@media (min-width: 1200px) {
+    .sidebar {
+        width: 250px;
+        transform: translateX(0) !important;
+    }
+    
+    main {
+        margin-left: 250px !important;
+    }
+    
+    #sidebarToggle {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .sidebar {
+        width: 250px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+    }
+    
+    main {
+        margin-left: 0 !important;
+    }
+    
+    #sidebarToggle {
+        display: block !important;
+    }
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+}
+
+.sidebar-overlay.show {
+    display: block;
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('adminSidebar');
+    const body = document.body;
+    
+    const overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    body.appendChild(overlay);
+    
+    sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('show');
+        overlay.classList.toggle('show');
+    });
+    
+    overlay.addEventListener('click', function() {
+        sidebar.classList.remove('show');
+        overlay.classList.remove('show');
+    });
+    
+    sidebar.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth < 768) {
+                sidebar.classList.remove('show');
+                overlay.classList.remove('show');
+            }
+        });
+    });
+});
+</script>
 
 <?php require_once '../includes/footer.php'; ?>
