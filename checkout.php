@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Load Razorpay configuration
-require_once __DIR__ . '/anki/config/razorpay.php';
+require_once __DIR__ . '/includes/razorpay.php';
 
 
 
