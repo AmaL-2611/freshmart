@@ -55,7 +55,7 @@ require_once '../includes/header.php';
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">
+                        <a class="nav-link" href="./anki/index.php">
                             <i class="fas fa-home"></i> View Site
                         </a>
                     </li>
