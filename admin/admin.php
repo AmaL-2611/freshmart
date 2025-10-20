@@ -55,12 +55,12 @@ require_once '../includes/header.php';
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./anki/index.php">
+                        <a class="nav-link" href="../index.php">
                             <i class="fas fa-home"></i> View Site
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-danger" href="./logout.php">
+                        <a class="nav-link text-danger" href="../logout.php">
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
                     </li>
