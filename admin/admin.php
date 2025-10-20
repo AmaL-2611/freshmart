@@ -40,7 +40,7 @@ require_once '../includes/header.php';
                 </h6>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active" href="admin.php">
+                        <a class="nav-link active" href="./admin.php">
                             <i class="fas fa-tachometer-alt"></i> Dashboard
                         </a>
                     </li>
@@ -60,7 +60,7 @@ require_once '../includes/header.php';
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-danger" href="../logout.php">
+                        <a class="nav-link text-danger" href="./logout.php">
                             <i class="fas fa-sign-out-alt"></i> Logout
                         </a>
                     </li>
