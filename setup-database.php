@@ -2,7 +2,7 @@
 /**
  * Database Setup Script
  * Run this file once to create the database and tables
- * Access: http://localhost/anki/setup-database.php
+ * Access: http://localhost./setup-database.php
  */
 
 // Database connection settings

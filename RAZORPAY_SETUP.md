@@ -28,7 +28,7 @@
 
 ### 4. Run Database Setup
 
-1. Go to: `http://localhost/anki/setup-database.php`
+1. Go to: `http://localhost./setup-database.php`
 2. This will create the `payment_transactions` table
 
 ### 5. Test the Payment

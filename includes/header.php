@@ -42,15 +42,15 @@ if (session_status() == PHP_SESSION_NONE) {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/anki/about.php">About Us</a>
+                        <a class="nav-link" href="./about.php">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/anki/contact.php">Contact</a>
+                        <a class="nav-link" href="./contact.php">Contact</a>
                     </li>
                 </ul>
                 
                 <div class="d-flex align-items-center">
-                    <form action="/anki/search.php" method="GET" class="me-3">
+                    <form action="./search.php" method="GET" class="me-3">
                         <div class="input-group">
                             <input type="text" class="form-control" name="q" placeholder="Search products..." required>
                             <button class="btn btn-outline-success" type="submit">
@@ -66,20 +66,20 @@ if (session_status() == PHP_SESSION_NONE) {
                         <ul class="dropdown-menu dropdown-menu-end">
                             <?php if(isset($_SESSION['user_id'])): ?>
                                 <?php if(isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
-                                    <li><a class="dropdown-item" href="/anki/admin/admin.php"><i class="fas fa-tachometer-alt me-2"></i>Admin Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="./admin/admin.php"><i class="fas fa-tachometer-alt me-2"></i>Admin Dashboard</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                 <?php endif; ?>
-                                <li><a class="dropdown-item" href="/anki/index.php"><i class="fas fa-home me-2"></i>Home</a></li>
+                                <li><a class="dropdown-item" href="./index.php"><i class="fas fa-home me-2"></i>Home</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item text-danger" href="/anki/logout.php"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                                <li><a class="dropdown-item text-danger" href="./logout.php"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                             <?php else: ?>
-                                <li><a class="dropdown-item" href="/anki/login.php">Login</a></li>
-                                <li><a class="dropdown-item" href="/anki/register.php">Register</a></li>
+                                <li><a class="dropdown-item" href="./login.php">Login</a></li>
+                                <li><a class="dropdown-item" href="./register.php">Register</a></li>
                             <?php endif; ?>
                         </ul>
                     </div>
                     
-                    <a href="/anki/cart.php" class="text-dark position-relative">
+                    <a href="./cart.php" class="text-dark position-relative">
                         <i class="fas fa-shopping-cart fa-lg"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
                             <?php 
