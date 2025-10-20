@@ -41,7 +41,7 @@ require_once 'includes/header.php';
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <?php if ($item['image']): ?>
-                                                    <img src="<?php echo $base_url; ?>assets/images/products/<?php echo htmlspecialchars($item['image']); ?>" 
+                                                    <img src="./assets/images/products/<?php echo htmlspecialchars($item['image']); ?>" 
                                                          alt="<?php echo htmlspecialchars($item['name']); ?>" 
                                                          style="width: 60px; height: 60px; object-fit: cover;" 
                                                          class="me-3">
