@@ -35,10 +35,10 @@ if (session_status() == PHP_SESSION_NONE) {
                             Categories
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/anki/category.php?cat=fruits">Fruits</a></li>
-                            <li><a class="dropdown-item" href="/anki/category.php?cat=vegetables">Vegetables</a></li>
-                            <li><a class="dropdown-item" href="/anki/category.php?cat=dairy">Dairy</a></li>
-                            <li><a class="dropdown-item" href="/anki/category.php?cat=bakery">Bakery</a></li>
+                            <li><a class="dropdown-item" href="./category.php?cat=fruits">Fruits</a></li>
+                            <li><a class="dropdown-item" href="./category.php?cat=vegetables">Vegetables</a></li>
+                            <li><a class="dropdown-item" href="./category.php?cat=dairy">Dairy</a></li>
+                            <li><a class="dropdown-item" href="./category.php?cat=bakery">Bakery</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
