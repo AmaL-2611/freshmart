@@ -47,9 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Load Razorpay configuration
-require_once __DIR__ . './config/razorpay.php';
-
-
+require_once 'config/razorpay.php';
 
 $pageTitle = 'Checkout - FreshMart';
 require_once 'includes/header.php';
@@ -186,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "currency": "INR",
             "name": "FreshMart",
             "description": "Order Payment",
-            "image": "./assets/images/logo.png",
+            "image": "/anki/assets/images/logo.png",
             "handler": function (response) {
                 // Payment successful
                 processRazorpayOrder(response);
